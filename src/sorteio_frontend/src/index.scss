@@ -91,17 +91,28 @@ h2 {
 
 /* Seção de participantes */
 .mostrar {
+  display: flex;
   flex-wrap: wrap;
+  overflow-x: auto; /* Adiciona a rolagem apenas se necessário */
+  width: 100%; /* Faz a barra ficar alinhada ao container */
+  max-width: 100%;
   gap: 10px;
+  padding: 10px;
+  padding-bottom: 8px; /* Evita que a rolagem fique colada nos inputs */
+  justify-content: center; 
 }
 
-
-.mostrar .equipe {
+.mostrar label{
   width: 100%;
+}
+.mostrar .equipe {
+  width: 80px;
+  text-align: center;
   padding: 4px;
   margin-top: 4px;
   border-radius: 4px;
   border: 1px solid #248ade;
+  
 }
 
 /* Cartão */

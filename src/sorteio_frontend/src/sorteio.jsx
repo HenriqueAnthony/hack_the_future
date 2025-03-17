@@ -8,9 +8,9 @@ function App() {
   const [resultadoSorteio, setResultadoSorteio] = useState(null);
 
   function handleTotalEquipesChange(e) {
-    const total = Number(e.target.value);
+    const total = e.target.value === "" ? "" : Number(e.target.value);
     setTotalEquipes(total);
-    setNomesEquipes(Array(total).fill(Array(numMembros).fill("")));
+    setNomesEquipes(total ? Array(total).fill(Array(numMembros).fill("")) : []);
   }
 
   function handleNumMembrosChange(e) {
@@ -55,22 +55,24 @@ function App() {
           <div className="numeros">
             <div className="grupo-input">
               <div className="dois">
-                <label htmlFor="tipo-equipe">Tipo de jogo: </label>
-                <select
-                  id="tipo-equipe"
-                  value={numMembros}
-                  onChange={handleNumMembrosChange}
-                >
-                  <option>Equipes</option>
-                </select>
+                <div className="tipo-equipe">
+                  <label htmlFor="tipo-equipe"> Torneio: </label>
+                  <select
+                    id="tipo-equipe"
+                    value={numMembros}
+                    onChange={handleNumMembrosChange}
+                  >
+                    <option>EQUIPE </option>
+                  </select>
+                </div>
                 <div className="grupo-input">
                   <div className="total-equipes">
                     <label htmlFor="tota">Total de Equipes: </label>
-                    
+
                     <input
                       type="number"
                       id="total-equipes"
-                      value={totalEquipes}
+                      value={totalEquipes ?? ""}
                       onChange={handleTotalEquipesChange}
                       min="1"
                     />
@@ -80,7 +82,6 @@ function App() {
             </div>
             <div className="grupo-input">
               <div className="mostrar">
-                <label>Informe os nomes das Equipes</label>
                 {nomesEquipes.map((equipe, equipeIndex) => (
                   <div key={equipeIndex} className="equipe">
                     <strong>Equipe </strong>

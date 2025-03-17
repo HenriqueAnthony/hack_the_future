@@ -50,7 +50,7 @@ function index() {
 
     <section class="">
         <div class="">
-            <h1 class="">BIG PLAY</h1>
+            <h1 class="">ROLL</h1>
             
             <div class="centralizar">
             {!isLoggedIn && (

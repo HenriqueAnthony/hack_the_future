@@ -107,18 +107,13 @@ function App() {
             {resultadoSorteio && (
               <div className="resultados">
                 <h2>DISPUTAS</h2>
-                <div className="lista">
-                  <p>
-                    {resultadoSorteio.array1
-                      .map(
-                        (nome, index) =>
-                          `${nome} X ${
-                            resultadoSorteio.array2[index] || "Aguardando"
-                          }`
-                      )
-                      .join("\n")}
-                  </p>
-                </div>
+                <ul className="lista">
+                  {resultadoSorteio.array1.map((nome, index) => (
+                    <li key={index}>
+                      {nome} X {resultadoSorteio.array2[index] || "Aguardando"}
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
           </div>

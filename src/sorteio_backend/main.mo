@@ -45,4 +45,47 @@ actor {
       case null { 1 };
     };
   };
+
+  // ===============================
+  // Novas funções adicionadas aqui:
+  // ===============================
+
+  // Lista de pessoas dinâmica
+  var listaDePessoas = Buffer.Buffer<Text>(0);
+
+  // Adiciona uma pessoa à lista
+  public func adicionarPessoa(nome: Text) : async () {
+    listaDePessoas.add(nome);
+  };
+
+  // Mostra o total de pessoas na lista
+  public func totalPessoas() : async Nat {
+    return listaDePessoas.size();
+  };
+
+  // Mostra a lista completa
+  public func mostrarLista() : async [Text] {
+    return Buffer.toArray(listaDePessoas);
+  };
+
+  // Sorteia 1 ou mais pessoas da lista
+  public func sortearPessoas(qtd: Nat) : async [Text] {
+    let total = listaDePessoas.size();
+    if (total == 0 or qtd == 0) {
+      return [];
+    };
+
+    var nomesDisponiveis = Buffer.fromArray<Text>(Buffer.toArray(listaDePessoas));
+    var sorteados = Buffer.Buffer<Text>(qtd);
+
+    let quantidade = if (qtd > total) total else qtd;
+
+    while (sorteados.size() < quantidade) {
+      let index = await sortearNumero(nomesDisponiveis.size());
+      let nomeSorteado = nomesDisponiveis.remove(index - 1);
+      sorteados.add(nomeSorteado);
+    };
+
+    return Buffer.toArray(sorteados);
+  };
 };

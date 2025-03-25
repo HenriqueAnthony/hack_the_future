@@ -24,10 +24,21 @@ body {
   color: #fff;
   border-radius: 10px;
   padding: 30px 40px;
-  max-height: 100vh;
+  max-height: 400px;
   overflow: auto;
 }
-
+.outrocon {
+  width: 460px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px #000000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+  max-height: 400px;
+  overflow: auto;
+}
 /* Títulos */
 h1, h2 {
   color: white;

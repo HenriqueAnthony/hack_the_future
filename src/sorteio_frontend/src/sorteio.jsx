@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { sorteio_backend } from "declarations/sorteio_backend";
+import { Link } from "react-router-dom";
 
 function App() {
   const [numMembros, setNumMembros] = useState(1);
@@ -46,10 +47,14 @@ function App() {
       console.error("Erro ao realizar o sorteio:", error);
     }
   }
+  
 
   return (
     <section className="container">
       <div>
+        <div className="botaocima">
+          <Link to={"/individual"}>Individual</Link>
+        </div>
         <h1>Sorteador</h1>
         <div className="cartao">
           <div className="numeros">

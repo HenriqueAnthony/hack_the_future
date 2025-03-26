@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "@dfinity/auth-client": "^2.3.0",
+    "@shadcn/ui": "^0.0.4",
     "react-router-dom": "^6.30.0"
   }
 }
